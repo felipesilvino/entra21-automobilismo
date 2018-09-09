@@ -4,8 +4,12 @@ interface
 
 uses
   SysUtils, Classes, DB, SqlExpr, FMTBcd
-  , UMensagens, DBXFirebird, DBXInterBase
-  , DBXCommon, DBXMySQL
+  , UMensagens
+  , DBXCommon
+  , DBXInterBase
+  , DBXMySQL
+  , Datasnap.DBClient
+  , Datasnap.Provider
   ;
 
 type

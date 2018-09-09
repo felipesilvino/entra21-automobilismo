@@ -1,6 +1,7 @@
 program Automobilismo;
 
 uses
+  MidasLib,
   Forms,
   UFrmCRUD in 'VisaoControle\UFrmCRUD.pas' {FrmCRUD},
   UUtilitarios in 'Modelo\UUtilitarios.pas',
