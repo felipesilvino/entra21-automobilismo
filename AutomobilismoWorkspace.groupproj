@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{2C1735D6-6CCF-4B86-AEE4-445C1AD346DD}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Automobilismo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Automobilismo">
+        <MSBuild Projects="Automobilismo.dproj"/>
+    </Target>
+    <Target Name="Automobilismo:Clean">
+        <MSBuild Projects="Automobilismo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Automobilismo:Make">
+        <MSBuild Projects="Automobilismo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Automobilismo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Automobilismo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Automobilismo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

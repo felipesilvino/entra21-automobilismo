@@ -156,6 +156,7 @@ begin
         DS.Next;
       end;
 
+      W := 0;
       for I := 0 to VisibleColumnsCount - 1 do
       begin
         W := dbgCliente.Canvas.TextWidth(VisibleColumns[I].Field.FieldName);

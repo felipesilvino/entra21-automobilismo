@@ -46,7 +46,6 @@ object dmEntra21: TdmEntra21
   end
   object SQLSelect: TSQLDataSet
     GetMetadata = False
-    Active = True
     CommandText = 'select * from pais'
     MaxBlobSize = -1
     Params = <>
