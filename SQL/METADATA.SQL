@@ -1,7 +1,6 @@
-/* initialization; */
-set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
+﻿set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 
-/* drop table pais; */
+﻿/* drop table pais; */
 create table pais (
   id int(10) unsigned not null auto_increment,
   nome varchar(60) not null,
@@ -65,8 +64,6 @@ create table equipe_piloto (
     references equipe(id) 
 );
 
-/* alter table equipe_piloto add key ind_id_temporada (id, temporada); */
-
 /* drop table autodromo; */
 create table autodromo (
 	id int(10) unsigned not null auto_increment,
@@ -118,4 +115,14 @@ create table resultado (
 	references calendario(id, temporada),
 	constraint fk_resultado_equipe_piloto foreign key (id_equipe_piloto, temporada)
 	references equipe_piloto(id, temporada)
+);
+
+/* drop table usuario */
+create table usuario (
+    id int(10) unsigned not null auto_increment,
+    nome varchar(60) not null,
+    login varchar(60) not null,
+    senha varchar(60) not null,
+    primary key (id),
+    unique key uk_nome (nome)
 );

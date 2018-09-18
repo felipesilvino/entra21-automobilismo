@@ -1,8 +1,12 @@
 program Automobilismo;
 
 uses
+  Vcl.Forms,
+  Vcl.Themes,
+  Vcl.Styles,
+  Vcl.Controls,
+  System.SysUtils,
   MidasLib,
-  Forms,
   UFrmCRUD in 'VisaoControle\UFrmCRUD.pas' {FrmCRUD},
   UUtilitarios in 'Modelo\UUtilitarios.pas',
   UMensagens in 'Modelo\UMensagens.pas',
@@ -31,13 +35,41 @@ uses
   URepositorioEquipe in 'Modelo\Persistencia\URepositorioEquipe.pas',
   URegraCRUDEquipe in 'Modelo\Regra\URegraCRUDEquipe.pas',
   UFrmCadastroEquipe in 'VisaoControle\UFrmCadastroEquipe.pas' {FrmCadastroEquipe},
-  UFrmPesquisa in 'VisaoControle\UFrmPesquisa.pas' {frmPesquisa};
+  UFrmPesquisa in 'VisaoControle\UFrmPesquisa.pas' {frmPesquisa},
+  UFrmLogin in 'VisaoControle\UFrmLogin.pas' {FrmLogin},
+  UFrmCadastroUsuario in 'VisaoControle\UFrmCadastroUsuario.pas' {FrmCadastroUsuario},
+  UListaVisualizacao in 'Modelo\UListaVisualizacao.pas',
+  UUsuarioLogado in 'Modelo\UUsuarioLogado.pas',
+  URepositorioUsuario in 'Modelo\Persistencia\URepositorioUsuario.pas',
+  UUsuario in 'Modelo\Persistencia\UUsuario.pas',
+  URegraCRUDUsuario in 'Modelo\Regra\URegraCRUDUsuario.pas';
 
 {$R *.res}
 
 begin
+  {$DEFINE DEV}
+
   Application.Initialize;
-  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+
+  TStyleManager.TrySetStyle('Windows10 SlateGray');
   Application.CreateForm(TdmEntra21, dmEntra21);
+
+  {$IFDEF PROD}
+  FrmLogin := TFrmLogin.Create(nil);
+  if FrmLogin.ShowModal = mrYes then
+    begin
+      FreeAndNil(FrmLogin);
+      Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+      Application.Run;
+    end
+  else
+    begin
+      Application.Run;
+      Application.Terminate;
+    end;
+  {$ELSE}
+  TUsuarioLogado.Unico.RealizaLogin('admin', 'adminadmin');
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.Run;
+  {$ENDIF}
 end.

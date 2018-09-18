@@ -62,7 +62,7 @@ uses
 procedure TFrmPrincipal.AtualizaUsuarioLogado;
 begin
   sbPrincipal.Panels[1].Text :=
-    'Usu·rio: ' + TUsuarioLogado.USUARIO.NOME;
+    'Usu√°rio: ' + TUsuarioLogado.USUARIO.NOME;
 end;
 
 procedure TFrmPrincipal.FechaFormulariosFilhos;

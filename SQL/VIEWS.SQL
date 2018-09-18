@@ -21,3 +21,9 @@ create or replace view vw_equipe as
   where e.id_pais = p.id
     and e.id_fabricante_pneu = fp.id
     and e.id_fabricante_motor = fm.id; 
+    
+create or replace view vw_usuario as
+select id as "Cód."
+     , login as "login"
+     , nome as "Nome"
+  from usuario;    

@@ -14,6 +14,8 @@ object frmPesquisa: TfrmPesquisa
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -79,6 +81,7 @@ object frmPesquisa: TfrmPesquisa
       Top = 21
       Width = 233
       Height = 19
+      Color = clInfoBk
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -117,8 +120,7 @@ object frmPesquisa: TfrmPesquisa
     Width = 764
     Height = 28
     Align = alTop
-    Color = clHotLight
-    ParentBackground = False
+    Color = clGray
     TabOrder = 0
     object lbCabecalho: TLabel
       Left = 8
@@ -140,6 +142,7 @@ object frmPesquisa: TfrmPesquisa
     Width = 764
     Height = 334
     Align = alClient
+    Color = clInfoBk
     FixedColor = clGradientInactiveCaption
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
     ReadOnly = True
