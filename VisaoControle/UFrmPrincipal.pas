@@ -21,6 +21,8 @@ type
     miCadastroPais: TMenuItem;
     miCadastroFabricante: TMenuItem;
     ilImagens: TImageList;
+    miGrafico: TMenuItem;
+    miPilotoIdade: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure miSairClick(Sender: TObject);
     procedure miPaisClick(Sender: TObject);
@@ -35,6 +37,7 @@ type
     procedure miCadastroFabricanteClick(Sender: TObject);
     procedure miCadastroPaisClick(Sender: TObject);
     procedure miCadastroPilotoClick(Sender: TObject);
+    procedure miPilotoIdadeClick(Sender: TObject);
   private
     procedure miStyleMenuItemClick(Sender: TObject);
     procedure AtualizaUsuarioLogado;
@@ -50,14 +53,16 @@ implementation
 
 uses
     UDM
+  , Vcl.Themes
+  , UUsuarioLogado
   , UFrmCadastroPais
   , UFrmCadastroFabricante
   , UFrmCadastroPiloto
   , UFrmCadastroEquipe
   , UFrmCadastroUsuario
-  , Vcl.Themes
-  , UUsuarioLogado
-  , UFrmLogin;
+  , UFrmLogin
+  , UFrmGrafico
+  ;
 
 procedure TFrmPrincipal.AtualizaUsuarioLogado;
 begin
@@ -168,6 +173,11 @@ end;
 procedure TFrmPrincipal.miPilotoClick(Sender: TObject);
 begin
   TFrmCadastroPiloto.Create(Self);
+end;
+
+procedure TFrmPrincipal.miPilotoIdadeClick(Sender: TObject);
+begin
+  TFrmGrafico.Create(Self);
 end;
 
 procedure TFrmPrincipal.miSairClick(Sender: TObject);

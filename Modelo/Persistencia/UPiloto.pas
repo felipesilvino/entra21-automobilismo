@@ -29,9 +29,10 @@ const
   FLD_PILOTO_DATA_NASCIMENTO = 'DATA_NASCIMENTO';
   FLD_PILOTO_ID_PAIS         = 'ID_PAIS';
 
-  VW_PILOTO      = 'VW_PILOTO';
-  VW_PILOTO_ID   = 'Id.';
-  VW_PILOTO_NOME = 'Nome';
+  VW_PILOTO       = 'VW_PILOTO';
+  VW_PILOTO_ID    = 'Id.';
+  VW_PILOTO_NOME  = 'Nome';
+  VW_PILOTO_IDADE = 'Idade';
 
 implementation
 

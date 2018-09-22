@@ -40,17 +40,15 @@ object dmEntra21: TdmEntra21
       'Encrypted=False'
       'BlobSize=-1'
       'ErrorResourceFile=')
-    Connected = True
-    Left = 32
+    Left = 48
     Top = 24
   end
   object SQLSelect: TSQLDataSet
     GetMetadata = False
-    CommandText = 'select * from pais'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = SQLConnection
-    Left = 112
+    Left = 128
     Top = 24
   end
 end

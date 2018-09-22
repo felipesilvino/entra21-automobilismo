@@ -42,18 +42,16 @@ uses
   UUsuarioLogado in 'Modelo\UUsuarioLogado.pas',
   URepositorioUsuario in 'Modelo\Persistencia\URepositorioUsuario.pas',
   UUsuario in 'Modelo\Persistencia\UUsuario.pas',
-  URegraCRUDUsuario in 'Modelo\Regra\URegraCRUDUsuario.pas';
+  URegraCRUDUsuario in 'Modelo\Regra\URegraCRUDUsuario.pas',
+  UFrmGrafico in 'VisaoControle\UFrmGrafico.pas' {FrmGrafico};
 
 {$R *.res}
 
 begin
   {$DEFINE DEV}
-
   Application.Initialize;
-
   TStyleManager.TrySetStyle('Windows10 SlateGray');
   Application.CreateForm(TdmEntra21, dmEntra21);
-
   {$IFDEF PROD}
   FrmLogin := TFrmLogin.Create(nil);
   if FrmLogin.ShowModal = mrYes then
